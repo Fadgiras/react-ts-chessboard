@@ -3,33 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Chessboard from './components/Chessboard';
+import Piece from './components/Piece';
 
 var parse = require('html-react-parser');
-
-function grid(){
-  var html='';
-  var y;
-  for (y=1; y<=8; y++){
-    for (var x=1; x<=8; x++) {
-
-      if((x+y)%2==0){
-        html+='<div id="'+x+'-'+y+'" class="p-8 bg-neutral-900 text-white h-fit w-fit"><p class="w-4 h-4">'+x+'-'+y+'</p></div> ';
-      }else{
-        html+='<div id="'+x+'-'+y+'" class="p-8 bg-amber-100 h-fit w-fit"><p class="w-4 h-4 ">'+x+'-'+y+'</p></div> ';
-      }
-    }
-  }
-  return html;
-}
-
-function test(){
-  return "<p>0</p>"
-}
-
-
-// const root = ReactDOM.createRoot(
-//   document.getElementById('root') as HTMLElement
-// );
 
 const elem = React.createElement(
   'h1',
@@ -48,12 +25,11 @@ const elem2 = React.createElement(
 // );
 
 ReactDOM.render(
-  <div className='bg-black h-full'>
-    {parse('<p class="text-center text-3xl mb-20">Chess board<p/>')}
-      <div className='flex justify-center '>
-        {/* TODO chessboard component */}
-        <div className='grid grid-cols-8 justify-self-center border-8 border-amber-900 h-fit place-items-center' dangerouslySetInnerHTML={{ __html: grid() }}></div>
-      </div>  
+  <div className='bg-black min-h-screen'>
+    {parse('<p class="text-center text-3xl mb-14 text-white pt-5">Chess board<p/>')}
+      <Chessboard>
+      </Chessboard>
+      
   </div>,
   document.getElementById("root")
 );
