@@ -8,27 +8,16 @@ import Piece from './components/Piece';
 
 var parse = require('html-react-parser');
 
-const elem = React.createElement(
-  'h1',
-  {className: 'bg-blue-600'},
-  'Bonjour, monde !'
-);
-
-const elem2 = React.createElement(
-  'h1',
-  {className: 'bg-amber-600'},
-  'Bonjour, monde 2 !'
-);
-
 // root.render(
 //   [elem,elem2]
 // );
 
 ReactDOM.render(
-  <div className='bg-black min-h-screen'>
+  <div className='bg-stone-900 min-h-screen'>
     {parse('<p class="text-center text-3xl mb-14 text-white pt-5">Chess board<p/>')}
       <Chessboard>
       </Chessboard>
+      <Piece name="knight" color="light"></Piece>
       
   </div>,
   document.getElementById("root")
