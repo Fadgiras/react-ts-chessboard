@@ -1,26 +1,32 @@
-import {Component, ReactNode} from "react";
-function grid(){
-  var html='';
-  var y;
-  for (y=1; y<=8; y++){
-    for (var x=1; x<=8; x++) {
+import {Component, ReactNode, ReactElement} from "react";
 
-      if((x+y)%2==0){
-        html+='<div id="'+x+'-'+y+'" class="bg-gradient-to-tr from-black via-stone-700 to-stone-800 text-white hover:from-teal-600 hover:via-teal-300 hover:to-teal-500 hover:text-black inline-block w-16 h-16 pt-4 text-center align-middle">'+'   '+'</div> ';
-      }else{
-        html+='<div id="'+x+'-'+y+'" class="bg-gradient-to-tr from-amber-200 via-gray to-amber-100 bg-amber-100 hover:from-teal-600 hover:via-teal-300 hover:to-teal-500 inline-block w-16 h-16 pt-4 text-center align-middle">'+'   '+'</div> ';
-      }
-    }
-  }
-  return html;
-}
+let woodyRender: string;
+woodyRender = "p-2 bg-gradient-to-tr ";
+woodyRender += "from-amber-800 "
+woodyRender += "via-amber-600 "
+woodyRender += "via-yellow-800 "
+woodyRender += "via-amber-700 "
+woodyRender += "to-amber-800"
+
+let outerWoodyRender: string;
+outerWoodyRender = "p-3 bg-gradient-to-tr ";
+outerWoodyRender += "from-amber-900 "
+outerWoodyRender += "via-amber-700 "
+outerWoodyRender += "via-yellow-900 "
+outerWoodyRender += "via-amber-800 "
+outerWoodyRender += "to-amber-900"
+
 
 export default class Chessboard extends Component<any,any>{
-    
-
     render(): ReactNode {
         return <div className='flex justify-center '>
-        <div className='grid grid-cols-8 justify-self-center border-8 border-amber-900 h-fit place-items-center ' dangerouslySetInnerHTML={{ __html: grid() }}></div>
+          <div className={outerWoodyRender}>
+            <div className={woodyRender}>
+              <div className='grid grid-cols-8 justify-self-center h-fit place-items-center '>
+                {this.props.children}
+              </div>
+            </div>
+          </div>
       </div>
     }
 }

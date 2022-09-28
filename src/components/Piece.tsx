@@ -1,14 +1,12 @@
-import { Component, Fragment, ReactNode } from "react";
-import Modal from "./modal";
+import { Component, PropsWithChildren} from "react";
+
 
 //if the piece attribution fails
 import nope from '../logo.svg';
-import React from "react";
-//const [showModal, setShowModal] = React.useState(false);
 
 const handleImgClick = (Event: { target: any; }) => {
 
-    console.log(Event.target.id);
+    console.log(Event.target.id)
     
 }
 
@@ -56,13 +54,12 @@ function pieceAttribution(name:string, color:string){
     return [pieceBuffer, pieceDesc]
 }
 
-interface PieceProps{
+interface PieceProps extends PropsWithChildren{
     name : string,
-    description : string,
     color : string
 }
 
-export default class Piece extends Component<any, any>{
+export default class Piece extends Component<PieceProps, any>{
     constructor(props : PieceProps){
         super(props);
     }
@@ -71,9 +68,7 @@ export default class Piece extends Component<any, any>{
     render() {
         var pieceAtt = pieceAttribution(this.props.name, this.props.color);
         return  <div>
-                    <img id={this.props.name} src={require(`../pieces/Chess_${pieceAtt[0]}t45.svg`)} onClick ={handleImgClick}/>
-                    <p className="relative text-white">{pieceAtt[1]}</p>
-                    {/* <Modal name={this.props.name} description={pieceAtt[1]}></Modal>                     */}
-                </div>
+                    <img id={this.props.name} className="h-full w-full object-cover" src={require(`../pieces/Chess_${pieceAtt[0]}t45.svg`)} onClick ={handleImgClick}/>
+                </div>    
     }
 }
