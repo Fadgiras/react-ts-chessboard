@@ -16,7 +16,7 @@ outerWoodyRender += "via-yellow-900 "
 outerWoodyRender += "via-amber-800 "
 outerWoodyRender += "to-amber-900"
 
-
+//TODO Chessboard state ?
 export default class Chessboard extends Component<any,any>{
     render(): ReactNode {
         return <div className='flex justify-center '>

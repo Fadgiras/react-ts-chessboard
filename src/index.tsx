@@ -1,4 +1,3 @@
-import React, { HtmlHTMLAttributes } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -132,7 +131,6 @@ ReactDOM.render(
         </Tile>
 
         {/* 8 */}
-        
         <Tile color='light'>
           <Piece name='rock' color='light' />
         </Tile>
@@ -157,11 +155,8 @@ ReactDOM.render(
         <Tile color='dark'>
           <Piece name='rock' color='light' />
         </Tile>
-
       </Chessboard>
-
-<Modal></Modal>
-      
+      {/* TODO Handle modal here */}
   </div>,
   document.getElementById("root")
 );
