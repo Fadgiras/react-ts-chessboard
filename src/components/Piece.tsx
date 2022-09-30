@@ -63,7 +63,8 @@ function pieceAttribution(name: string, color: string) {
 
 interface PieceProps extends PropsWithChildren {
     name: string,
-    color: string
+    color: string,
+    tile : string
 }
 
 interface PiecesState {
@@ -91,7 +92,7 @@ export default class Piece extends Component<PieceProps, PiecesState> {
 
     getModal(pieceAtt: string[]) {
         if (this.state && this.state.showModal) {
-            return <Modal name={this.props.name} description={pieceAtt[1]} method={() => this.showTheModal()}/>
+            return <Modal name={this.props.name} description={pieceAtt[1]} method={() => this.showTheModal()} color={this.props.color} tile={this.props.tile}/>
         }
     }
 

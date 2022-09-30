@@ -5,7 +5,8 @@ const lightTile = "bg-gradient-to-tr from-amber-200 via-gray to-amber-100 bg-amb
 
 //Don't forget to Extend PWC : Child breaks otherwise
 interface TileProps extends PropsWithChildren{
-    color : string
+    color : string,
+    pos : string
 }
 
 export default class Tile extends Component<TileProps, any>{

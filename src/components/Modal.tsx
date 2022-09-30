@@ -3,6 +3,8 @@ import {Component, ReactNode} from "react";
 interface ModalProps {
     name: string,
     description: string,
+    color : string,
+    tile : string
     method: () => void
 }
 
@@ -23,8 +25,8 @@ export default class Modal extends Component<ModalProps, any> {
                 <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
                     <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white select-none">
-                                Piece description : {this.props.name}
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white select-none capitalize">
+                                Piece : {this.props.color} {this.props.name} 
                             </h3>
                             <button type="button"
                                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -38,11 +40,12 @@ export default class Modal extends Component<ModalProps, any> {
                             </button>
                         </div>
                         <div className="p-6 space-y-6">
-                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 select-none">
-                                {this.props.description}
-                            </p>
-                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-
+                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-300 select-none">
+                                <p className="text-left dark:text-white text-gray-900">Piece position : {this.props.tile}</p> 
+                                <br/>
+                                <p className="text-left dark:text-white text-gray-900">Description :</p>
+                                <p className="text-left text-gray-500 dark:text-gray-300">{this.props.description}</p>
+                                
                             </p>
                         </div>
                     </div>
